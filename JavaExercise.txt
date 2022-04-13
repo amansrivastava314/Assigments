@@ -1,0 +1,316 @@
+String, StringBuilder, StringBuffer
+----------------------------------------------------------------------------------
+
+Ques.)
+Write a program to concatenate StringBuilder & StringBuffer objects.
+
+
+public class Concatenate {
+    public static void main(String[] args) {
+        StringBuilder builder = new StringBuilder("My name is");
+        StringBuffer buffer = new StringBuffer(" Aman");
+
+        String result = builder.toString().concat(buffer.toString());
+
+        System.out.println(result);
+    }
+}
+------------------------------------------------------------------------------------
+Ques.)Write a program to get a substring of a StringBuffer.
+
+
+
+public class SubString {
+	    public static void main(String[] args) {
+	        StringBuffer buffer = new StringBuffer("My name is Aman");
+	        String result = buffer.substring(5);
+	        System.out.println(result);
+	    }
+	}
+
+-------------------------------------------------------------------------------------
+Ques)Write a program to display the length and capacity of String, StringBuilder and StringBuffer.
+
+public class LengthandCapacity {
+	    public static void main(String[] args) {
+	        String string = new String("Aman");
+	        StringBuffer buffer = new StringBuffer("Srivastava");
+	        StringBuilder builder = new StringBuilder("ComputerScience");
+
+	        
+	        System.out.println("Length and capacity of string is " + string.length());
+	        System.out.println();
+	        System.out.println("length of StringBuffer is = " + buffer.length());
+	        System.out.println("Capacity of StringBuffer is = " + buffer.capacity());
+	        System.out.println();
+	        System.out.println("length of StringBuilder is = " + builder.length());
+	        System.out.println("Capacity of StringBuilder is = " + builder.capacity());
+	    }
+	}
+---------------------------------------------------------------------------------------
+
+Ques).Write a program to check whether two given strings contains same set of characters as well as having same length.
+
+ input
+ String s1 = "amar";
+ String s2= "rama";
+ 
+ output : Both contains same characters
+
+
+public class CheckCharacters {
+	
+	public boolean checkStrings(String s1, String s2) {
+        boolean response = true;
+        if(s1.length() == s2.length()){
+            for (int i = 0; i < s2.length() ; i++) {
+                if(s1.contains(""+ s2.charAt(i))){
+                   continue;
+                }
+                else{
+                    response = false;
+                    break;
+                }
+            }
+
+        }
+        else{
+            response = false;
+        }
+
+        return response;
+    }
+	
+	    public static void main(String[] args) {
+	        String s1 = "amar";
+	        String s2 = "rama";
+	        CheckCharacters obj = new CheckCharacters();
+	        if(obj.checkStrings(s1,s2)){
+	            System.out.println("Both contains same characters");
+	        }
+	        else {
+	            System.out.println("Both contains different characters");
+	        }
+	    }
+
+
+	    }
+
+------------------------------------------------------------------------------------------
+
+Ques.)Write a program to lexicographically arrange the given strings "Raman" , "Aman" , "Vikram" , "Shyam" and "Bhuvan".
+import java.util.Arrays;
+
+	public class LexicographicalArrange {
+	    public static void main(String[] args) {
+	        String[] strings = {"Raman", "Aman", "Vikram", "Shyam", "Bhuvan"};
+	        for (int i = 0; i < strings.length - 1; i++) {
+	            for (int j = 0; j < strings.length - 1; j++) {
+	                if (strings[j].compareTo(strings[j + 1]) > 0) {
+	                    String temp = strings[j];
+	                    strings[j] = strings[j + 1];
+	                    strings[j + 1] = temp;
+	                }
+	            }
+	        }
+	        System.out.println(Arrays.toString(strings));
+	    }
+	}
+
+
+--------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+Wrapper Class---
+--------------------------------------------------------------------------------------------
+
+Ques.)Wrapper Classes (Integer, Byte, Short, Long, Float, Double, Character, Boolean)
+Create objects of all the wrapper classes and print then on console, with using constructor.
+
+
+public class CreateWrapperObjects {
+	    public static void main(String[] args) {
+	        Integer objInteger = new Integer(10);
+	        Byte objByte = new Byte((byte) 12);
+	        Short objShort = new Short((short) 15);
+	        Long objLong = new Long(123L);
+	        Double objDouble = new Double(12.34);
+	        Float objFloat = new Float(12.3f);
+	        Boolean objBoolean = new Boolean(true);
+	        Character objCharacter = new Character('c');
+
+	        System.out.println(objInteger);
+	        System.out.println(objBoolean);
+	        System.out.println(objByte);
+	        System.out.println(objDouble);
+	        System.out.println(objCharacter);
+	        System.out.println(objFloat);
+	        System.out.println(objLong);
+	        System.out.println(objShort);
+
+	    }
+	}
+
+----------------------------------------------------------------------------------------------
+
+Ques.)Write a program to demonstrate boxing and un-boxing.
+
+
+public class BoxingUnboxing {
+	    public static void main(String[] args) {
+	        //boxing
+	        Integer objInteger = Integer.valueOf(10);
+	        //un-boxing
+	        int a = objInteger.intValue();
+
+	        System.out.println(a);
+	    }
+	}
+
+---------------------------------------------------------------------------------------------------
+
+Ques.)Write a program to demonstrate autoboxing and unboxing.
+
+public class AutoboxingUnboxing {
+
+	public static void main(String[] args) {
+        //autoboxing
+        Integer objInteger = 10;
+        //un-boxing
+        int a = objInteger;
+
+        System.out.println(a);
+
+    }
+}
+-----------------------------------------------------------------------------------------------------
+
+
+Ques.) Create an array of 5 integers and print sum and average by creating Integer sum(Integer[] arr) and Double average(Integer sum, Integer numberOfElements). Do casting as required for getting proper result;
+
+public class SumandAverage {
+	public static void main(String[] args) {
+        Integer[] arr = {10, 20, 30, 40, 50};
+        SumandAverage obj = new SumandAverage();
+        Integer sum = obj.sum(arr);
+        Integer numberOfElements = arr.length;
+        Double ave = obj.average(sum, numberOfElements);
+        System.out.println("sum = " + sum);
+        System.out.println("average = " + ave);
+
+
+    }
+
+    public Double average(Integer sum, Integer numberOfElements) {
+        Double response = 0.0;
+        response = (double) sum / numberOfElements;
+        return response;
+    }
+
+    public Integer sum(Integer[] arr) {
+        Integer response = 0;
+        for (Integer integer : arr) {
+            response += integer;
+        }
+        return response;
+    }
+}
+----------------------------------------------------------------------------------
+
+Ques.) Write a program to print ASCII values of Character objects using wrapper class.
+
+
+public class ASCIIvalue {
+	 public static void main(String[] args) {
+	        Character obj = Character.valueOf('a');
+	        System.out.println((int)obj);
+	    }
+	}
+
+
+---------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------
+Collection(ArrayList & HashSet)--
+----------------------------------------------------------------------------------
+Ques.) Create a List & Set of 10 integers and demonstrate ordered and unordered collection as well as duplicate allowed and not allowed. Demonstrate addAll() method also.
+
+
+import java.util.ArrayList;
+import java.util.HashSet;
+
+public class ListandSet {
+    public static void main(String[] args) {
+        //creating a ArrayList of 10 Integers
+        ArrayList<Integer> integers = new ArrayList<>();
+        integers.add(20);
+        integers.add(60);
+        integers.add(70);
+        integers.add(50);
+        integers.add(30);
+        integers.add(250);
+        integers.add(3);
+        integers.add(2);
+        integers.add(10);
+        integers.add(10);
+        //printing the list
+        System.out.println("printing list");
+        System.out.println(integers);
+
+   
+        //creating HashSet to store integers, set is unordered and cannot contain duplicate
+        HashSet<Integer> integerHashSet = new HashSet<>();
+
+        //adding elements
+        integerHashSet.add(40);
+        integerHashSet.add(1000);
+        integerHashSet.add(350);
+        integerHashSet.add(150);
+        integerHashSet.add(1050);
+        integerHashSet.add(3500);
+        integerHashSet.add(1010);
+        integerHashSet.add(10010);
+        integerHashSet.add(3150);
+        integerHashSet.add(1005);
+
+       
+        System.out.println("printing set");
+        System.out.println(integerHashSet);
+        
+        integers.addAll(integerHashSet);
+        System.out.println("list with added set");
+        System.out.println(integers);
+
+        integerHashSet.addAll(integers);
+
+        System.out.println("set with added list");
+        System.out.println(integerHashSet);
+    }
+}
+---------------------------------------------------------------------------------------------
+Ques).Create a List of 10 Integer objects and try to access 15th index. Properly analysis the output.
+
+import java.util.ArrayList;
+
+public class NewList {
+    public static void main(String[] args) {
+     
+        ArrayList<Integer> integers = new ArrayList<>();
+     
+        integers.add(20);
+        integers.add(60);
+        integers.add(70);
+        integers.add(50);
+        integers.add(30);
+        integers.add(250);
+        integers.add(3);
+        integers.add(2);
+        integers.add(10);
+        integers.add(18);
+        //printing the list
+        System.out.println("printing list");
+        System.out.println(integers);
+        int no = integers.get(15);
+        System.out.println(no);
+    }
+
+}
+
